@@ -10,7 +10,9 @@
 
 На главном экране появились ссылки на счётчики Яндекс Метрики и общая аналитика. Один счётчик объединяет сайты одного основного домена; отчёты в панели разделяются по поддоменам. Код подключается через веб-сервер и сохраняется при обновлении приложений. Для отчётов внутри панели нужен отдельный доступ к API Метрики.
 
-В подключении Telegram теперь различаются ошибка сети и отклонённый токен. Обнаруженную недоступность API со стороны хостинга это само по себе не устраняет.
+В настройках Метрики появилась кнопка получения OAuth-токена. Панель проверяет доступ к счётчикам и отчётам; номер приложения ClientID не принимается вместо токена.
+
+Для Telegram подготовлен посредник на Cloudflare Workers: подписанные запросы, четыре разрешённые команды и проверка ответов без раскрытия токена. Он пока не опубликован — требуется доступ к аккаунту Cloudflare. Прямое соединение с Telegram на хостинге остаётся нестабильным.
 
 ## Что добавляет панель
 
@@ -37,6 +39,7 @@ Uptime Kuma и Beszel используются как самостоятельн
 | [henrygd/beszel](https://github.com/henrygd/beszel) · MIT | Ресурсы сервера |
 | [Яндекс Метрика](https://yandex.ru/dev/metrika/) | API аналитики и Вебвизор; сервис не является open source |
 | [Telegram Bot API](https://core.telegram.org/bots/api) | Уведомления |
+| [Cloudflare Workers](https://developers.cloudflare.com/workers/) | Подготовлен посредник для Telegram; публикация ожидает доступа к аккаунту |
 | [React](https://github.com/facebook/react), [Recharts](https://github.com/recharts/recharts), [Phosphor](https://github.com/phosphor-icons/react) · MIT | Интерфейс |
 | [Flask](https://github.com/pallets/flask), [Gunicorn](https://github.com/benoitc/gunicorn) · BSD | Сервер приложения |
 | [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop) | Правила редактуры текстов |
